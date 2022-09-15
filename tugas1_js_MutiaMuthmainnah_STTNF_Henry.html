@@ -1,0 +1,63 @@
+<script lang="javascript">
+    var pegawai= "Malika";
+    var jabatan= "Manager";
+    var status= "Menikah";
+
+    //Gaji Pokok(if): Manager=>15 jt, Asisten Manager=>10 jt, Staff=>5 jt 
+    if(jabatan == 'Manager'){
+        gapok = 15000000;
+    }
+    else if(jabatan == 'Asisten Manager'){
+        gapok = 10000000;
+    }
+    else if(jabatan == 'Staff'){
+        gapok = 5000000;
+    }
+    else{
+        gapok= 0 ;
+    }
+
+    let tunjangan_jabatan = 0.15 * gapok;
+    let bpjs = 0.1 * gapok;
+    
+    //ternary
+    if(status == 'Menikah'){
+        tunjangan_keluarga = 0.2 * gapok;
+    }
+    else{
+        tunjangan_keluarga= 0;
+    }
+
+    var total_gaji= gapok + tunjangan_jabatan + bpjs + tunjangan_keluarga;
+
+
+    //Cetak
+    document.write("<table>"+"<thead>"+"<tr>"+"<th>Data Pegawai</th>"+"</tr>"+"</thead>"+"</table>");
+    document.write("<table>"+
+        "<tbody>"+
+            "<tr>"+
+                "<br/> Nama: " + pegawai + 
+                "<br/> Jabatan: " + jabatan +
+                "<br/> Status: " + status +
+            "</tr>"+
+        "</tbody>"+"</table>"
+    );
+    document.write("<table border='1'>"+
+        "<tbody>"+
+            "<tr>"+
+                "<td>Gaji Pokok</td>" +
+                "<td>Tunjangan Jabatan</td>" +
+                "<td>BPJS</td>" +
+                "<td>Tunjangan Keluarga</td>" +
+            "</tr>"+
+            "<tr>"+
+                "<td>" + gapok + "</td>" +
+                "<td>" + tunjangan_jabatan + "</td>" +
+                "<td>" + bpjs + "</td>" +
+                "<td>" + tunjangan_keluarga + "</td>" +
+            "</tr>"+
+        "</tbody>"
+        +"</table>"
+    );
+    document.write("<table border='1'>"+"<tfoot>"+"<tr>"+"<td>Total Gaji= </td>"+"<td>"+total_gaji+"</td>"+"</tr>"+"</tfoot>"+"</table>");
+</script>

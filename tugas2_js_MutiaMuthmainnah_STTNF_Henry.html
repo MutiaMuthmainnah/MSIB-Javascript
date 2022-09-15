@@ -1,0 +1,69 @@
+<h3 align="center">Daftar Mahasiswa</h3>
+    <table align="center" cellpadding="10" width="40%">
+        <thead>
+            <tr bgcolor="tomato">
+                <th>NO</th>
+                <th>NAMA</th>
+                <th>JABATAN</th>
+                <th>AGAMA</th>
+                <th>GAJI POKOK</th>
+                <th>TUNJANGAN JABATAN</th>
+                <th>TUNJANGAN KESEHATAN</th>
+                <th>GAJI KOTOR</th>
+                <th>ZAKAT PROFESI</th>
+                <th>TAKE HOME PAY</th>
+            </tr>
+        </thead>
+        <tbody>
+            <script language="javascript">
+
+            var no, jabatan, gapok, tunjangan_jabatan, tunjangan_kesehatan, gaji_kotor, zakat,take_home_pay, agama, warna;
+            for(no = 1; no <= 100; no++){
+                if(no <= 25){
+                    jabatan = 'Manager';
+                }
+                else if(no >= 26 && no <= 50){
+                    jabatan = 'Asisten Manager';
+                }
+                else if(no >= 51 && no <= 75){
+                    jabatan = 'Supervisor';
+                }
+                else if(no >= 76 && no <= 100){
+                    jabatan = 'Staff';
+                }
+                else{
+                    jabatan = '-';
+                }
+                gapok = 0
+                switch(jabatan){
+                    case 'Manager' : gapok= 15000000; break;
+                    case 'Asisten Manager' : gapok= 10000000; break;
+                    case 'Supervisor' : gapok= 7000000; break;
+                    case 'Staff' : gapok= 4000000; break;
+                    default: gapok = 0;
+                }
+
+                
+                let tunjangan_jabatan = 0.2 * gapok;
+                let tunjangan_kesehatan = 0.1 * gapok;
+                let gaji_kotor = gapok + tunjangan_jabatan + tunjangan_kesehatan;
+                let zakat = (no % 2 == 1 && gapok >= 7000000) ? 0.025 * gapok : 0;
+                let take_home_pay = gaji_kotor - zakat;
+                agama = (no % 2 == 1) ? 'Islam' : 'Non Muslim';
+                warna = (no % 2 == 1) ? 'yellow' :'aqua';
+                document.write(`<tr bgcolor="${warna}">
+                    <td>${no}</td>
+                    <td>Pegawai${no}</td>
+                    <td>${jabatan}</td>
+                    <td>${agama}</td>
+                    <td>${gapok}</td>
+                    <td>${tunjangan_jabatan}</td>
+                    <td>${tunjangan_kesehatan}</td>
+                    <td>${gaji_kotor}</td>
+                    <td>${zakat}</td>
+                    <td>${take_home_pay}</td>
+                </tr>`);
+            }    
+            </script>
+        </tbody>
+    </table>
