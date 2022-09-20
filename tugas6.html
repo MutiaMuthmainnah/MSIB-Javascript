@@ -1,0 +1,67 @@
+<h3 align="center">DATA INFO GEMPA</h3>
+    <table align="center" border="1" cellpadding="10">
+        <thead>
+            <tr bgcolor="Tomato">
+                <th>NO</th>
+                <th>LOKASI</th>
+                <th>SKALA</th>
+                <th>DAMPAK</th>
+            </tr>
+        </thead>
+        <tbody>
+            <script>
+                class InfoGempa{
+                    constructor(no, lokasi, skala){
+                        this.no = no;
+                        this.lokasi = lokasi;
+                        this.skala = skala;
+                    }
+                
+                    getDampak(){
+                        if(this.skala <=2) this.dampak = 'Tidak Terasa';
+                        else if(this.skala > 2 && this.skala <= 4) this.dampak = 'Bangunan Retak';
+                        else if(this.skala > 4 && this.skala <= 6) this.dampak = 'Bangunan Roboh';
+                        else if(this.skala >= 6) this.dampak = 'Bangunan Roboh berpotensi Sunami';
+                        else this.dampak = '';
+                
+                        return this.dampak;
+                    }
+                
+                    cetak(){
+                        document.write('No: '+ this.no +
+                        '<br/>Lokasi: '+ this.lokasi +
+                        '<br/>Skala: ' + this.skala +
+                        '<br/>Dampak: ' + this.getDampak() +
+                        '<hr/>');
+                    }
+                
+                    mencetak(){
+                        document.write(`
+                        <tr>
+                        <td> ${this.no} </td>
+                        <td> ${this.lokasi} </td>
+                        <td> ${this.skala} </td>
+                        <td> ${this.getDampak()} </td>
+                        <tr/>`);
+                    }
+                }
+                
+                //-------membuat object-----
+                g1 = new InfoGempa(1, 'Bogor', 2);
+                g2 = new InfoGempa(2, 'Jakarta', 5);
+                g3 = new InfoGempa(3, 'Banten', 6);
+                g4 = new InfoGempa(4, 'Tangerang', 7);
+                g5 = new InfoGempa(5, 'Jakarta Selatan', 6);
+                g6 = new InfoGempa(6, 'Bekasi', 5);
+                g7 = new InfoGempa(7, 'Bogor', 7);
+                g8 = new InfoGempa(8, 'Jawa Tengah', 4);
+                g9 = new InfoGempa(9, 'Depok', 3);
+                g10 = new InfoGempa(10, 'Bandung', 2);
+                
+                g1.mencetak(); g2.mencetak(); g3.mencetak(); g4.mencetak(); g5.mencetak();
+                g6.mencetak(); g7.mencetak(); g8.mencetak(); g9.mencetak(); g10.mencetak();
+                
+            </script>
+        </tbody>
+    
+       
